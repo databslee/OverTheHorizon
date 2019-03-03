@@ -5,14 +5,59 @@ namespace OverTheHorizon
 {
     class Program
     {
+        static Position One_Apple;
+        static Position Two_Apple;
+        static Position Three_Apple;
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello The Sea");
-            var product = new Product("dd",10);
+            Console.WriteLine("Hello, Over The Horizon");
+
+            SetProduct();
             var run = new Run();
             var user = new User();
+
+            var User_Product = new Dictionary<string, int>();
+            User_Product.Add("사과", 0);
+            User_Product.Add("바나나", 0);
+            User_Product.Add("복숭아", 0);
+
+            user.productDic = User_Product;
             run.Start(user);
         }
+
+        static void SetProduct()
+        {
+            var One_Product = new Dictionary<string, int>();
+            One_Product.Add("사과", 10);
+            One_Product.Add("바나나", 20);
+            One_Product.Add("복숭아", 30);
+
+            var Two_Product = new Dictionary<string, int>();
+            Two_Product.Add("사과", 15);
+            Two_Product.Add("바나나", 30);
+            Two_Product.Add("복숭아", 10);
+
+            var Three_Product = new Dictionary<string, int>();
+            Three_Product.Add("사과", 25);
+            Three_Product.Add("바나나", 10);
+            Three_Product.Add("복숭아", 20);
+
+
+            One_Apple = new Position(1, One_Product);
+            Two_Apple = new Position(2, Two_Product);
+            Three_Apple = new Position(3, Three_Product);
+        }
+    }
+
+    class Position
+    {
+        public Position(int iPos, Dictionary<string, int> dProductDic)
+        {
+            iPos = pos;
+            dProductDic = productDic;
+        }
+        public int pos;
+        public Dictionary<string, int> productDic = new Dictionary<string, int>();
     }
 
     class User
@@ -20,7 +65,7 @@ namespace OverTheHorizon
         public int pos = 1;
         public int money = 1000;
         public int product = 0;
-        public Dictionary<string, int> dic = new Dictionary<string, int>();
+        public Dictionary<string, int> productDic = new Dictionary<string, int>();
     }
 
     class Product
@@ -66,7 +111,7 @@ namespace OverTheHorizon
 
         public void Status(User user)
         {
-            Console.WriteLine($@"{user.pos} {user.money} {user.product}");
+            Console.WriteLine($@"위치 : {user.pos} 돈 : {user.money} 상품 : {user.product}");
         }
 
         public void Move(User user)
