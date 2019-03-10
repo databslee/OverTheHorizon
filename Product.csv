@@ -1,0 +1,9 @@
+﻿1,1,사과,100,1.0,True,True
+2,1,바나나,200,1.0,False,True
+3,1,복숭아,300,1.0,False,True
+4,2,사과,300,1.0,False,True
+5,2,바나나,100,1.0,True,True
+6,2,복숭아,200,1.0,False,True
+7,3,사과,200,1.0,False,True
+8,3,바나나,300,1.0,False,True
+9,3,복숭아,100,1.0,True,True
